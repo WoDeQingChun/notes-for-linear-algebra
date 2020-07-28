@@ -1,0 +1,64 @@
+\chapter{线性方程组}
+线性方程组是高等代数研究问题的起点
+\section{一些概念}
+由对$n$元线性方程组的高斯消元法求解引入矩阵及其相关基本概念
+\begin{equation*}
+    \begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=b_{1}\\
+        a_{21}x_1+\cdots+a_{2n}x_n=b_{2}\\
+        \cdots\\
+        a_{s1}x_1+\dots+a_{sn}x_n=b_{s}
+    \end{cases}
+\end{equation*}
+
+求解过程中不难发现方程组的解只与系数和常数项有关。为此我们从中抽象出一个数学模型，把它叫矩阵。
+\begin{definition}
+    由$s\cdot n$个数排成$s$行，$n$列的一张数表称为一个$s\times n$矩阵，矩阵常用大写字母$A,B,C$表示.若令$A=(a_{ij})_{s\times n}$，
+    则其第i行，第j列个元素可表示为$A(i;j)$或$a_{ij}$
+\end{definition}
+\begin{definition}
+    线性方程组系数所组成的矩阵称为系数矩阵，带上常数项后称为增广矩阵
+\end{definition}
+
+易知，高斯消元法中所用到的变换不改变方程组的解，因此引入矩阵初等行变换的概念
+\begin{definition}
+    称以下三种变换为矩阵的初等行变换：
+    \begin{itemize}
+        \item 用一个非零数乘以一行
+        \item 交换两行
+        \item 用一行的倍数加到另一行
+    \end{itemize}
+\end{definition}
+
+由最后的求解又引入了行阶梯型矩阵和行最简型矩阵、主元。主元反映到线性方程组中又产生了主变量和自由变量的概念。
+\begin{definition}[行阶梯形矩阵]
+    一个矩阵是行阶梯型矩阵，当且仅当它满足：
+    \begin{itemize}
+        \item 若有零行，零行在最下方
+        \item 对于非零行，从左到右第一个非零元称为主元，主元的列指标随着行指标的增大严格增大
+    \end{itemize}
+\end{definition}
+\begin{definition}[行最简型矩阵]
+    一个矩阵是行最简型矩阵，当且仅当它满足：
+    \begin{itemize}
+        \item 是行阶梯型矩阵
+        \item 主元都是1
+        \item 主元所在列的其它元素都是0
+    \end{itemize}
+\end{definition}
+\begin{definition}[主变量]
+    以主元为系数的便量称为主变量，其它变量称为自由变量
+\end{definition}
+
+\section{线性方程组的解的情形及判别准则}
+根据一些例子不难猜想出线性方程组的解有三种情形：
+\begin{enumerate}
+    \item 当方程出现不相容时，无解
+    \item 有唯一解
+    \item 有无穷多解
+\end{enumerate}
+现予以说明：首先将对应的增广矩阵化为行阶梯型，设变量有$n$个，此时有$r$个非零行。
+\begin{itemize}
+    \item 若某行出现"$0=d(d\neq 0)$"时，显然无解
+    \item 
+\end{itemize}
