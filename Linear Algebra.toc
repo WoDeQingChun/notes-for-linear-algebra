@@ -1,3 +1,5 @@
 \contentsline {chapter}{\numberline {第一章\hspace {.3em}}线性方程组}{2}%
-\contentsline {chapter}{\numberline {第二章\hspace {.3em}}向量空间}{3}%
-\contentsline {section}{\numberline {2.1}预备知识-域}{3}%
+\contentsline {section}{\numberline {1.1}一些概念}{2}%
+\contentsline {section}{\numberline {1.2}线性方程组的解的情形及判别准则}{3}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}向量空间}{4}%
+\contentsline {section}{\numberline {2.1}预备知识-域}{4}%

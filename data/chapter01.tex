@@ -60,5 +60,24 @@
 现予以说明：首先将对应的增广矩阵化为行阶梯型，设变量有$n$个，此时有$r$个非零行。
 \begin{itemize}
     \item 若某行出现"$0=d(d\neq 0)$"时，显然无解
-    \item 
+    \item 由主元的定义知有$r$个主元，故$r\leq n$\begin{itemize}
+        \item 当$r=n$时，继续将行阶梯型化为行最简型，可直接得到此时有唯一解
+        \item 当$r<n$时，存在自由变量，此时有无穷多解
+    \end{itemize}
 \end{itemize}
+
+\begin{theorem}[线性方程组解的情况及判定准则]
+    $n$元线性方程组的解的情形只有三种：
+    \begin{itemize}
+        \item 无解 $\Longleftrightarrow$ 出现"$0=d(d\neq0)$"
+        \item 有唯一解 $\Longleftrightarrow$ 增广矩阵化行阶梯型非零行行数$r=n$
+        \item 有无穷多解 $\Longleftrightarrow$ 增广矩阵化行阶梯型非零行行数$r<n$
+    \end{itemize}
+\end{theorem}
+\begin{corollary}
+    $n$元齐次线性方程组的解的情形有两种：
+    \begin{itemize}
+        \item 有唯一零解  $\Longleftrightarrow$ 系数矩阵化行阶梯型非零行行数$r=n$
+        \item 有无穷多解 $\Longleftrightarrow$ 系数矩阵化行阶梯型非零行行数$r<n$
+    \end{itemize}
+\end{corollary}
