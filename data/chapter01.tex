@@ -81,3 +81,24 @@
         \item 有无穷多解 $\Longleftrightarrow$ 系数矩阵化行阶梯型非零行行数$r<n$
     \end{itemize}
 \end{corollary}
+
+\section{数域}
+之前我们对线性方程组默认是系数对加减乘除都封闭，但是有些方程组在整数范围内不一定有解，例如:
+\begin{equation*}
+    \begin{cases}
+        x+y=1\\
+        x-y=0
+    \end{cases}
+\end{equation*}
+这种情形对我们的求解造成了额外的困扰。因此，要使我们所做的初等变换是合理的，我们引入数域的概念。
+\begin{definition}[数域]
+    设集合$K$是复数集的一个子集，如果$K$满足：
+    \begin{enumerate}
+        \item $0,1\in K$
+        \item $K$对加减乘除运算封闭
+    \end{enumerate}
+    则称$K$是一个数域
+\end{definition}
+\begin{corollary}
+    根据定义容易验证最小的数域是有理数域，最大的数域是复数域
+\end{corollary}
