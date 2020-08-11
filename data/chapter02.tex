@@ -1,0 +1,80 @@
+\chapter{行列式}
+为了直接从线性方程组的系数出发探究线性方程组的解的情况。我们先从解剖“麻雀”---2个未知数，2个线性方程的方程组开始。
+对方程组：
+\begin{equation*}
+    \begin{cases}
+        a_{11}x_1 + a_{12}x_2 = b_1\\
+         a_{21}x_1 + a_{22}x_2 = b_2
+     \end{cases}
+\end{equation*}
+\(a_{11},a_{21}\) 不全为0，不妨设$a_{11} \neq 0$,对其增广矩阵化行阶梯型有：
+\begin{equation*}
+    \begin{bmatrix}
+        a_{11} & a_{12} & b_{1} \\
+        0   &   a_{22}-a_{12}\frac{a_{21}}{a_{11}}  &   b_{2}-b_{1}\frac{a_{21}}{a_{11}}
+    \end{bmatrix}
+\end{equation*}
+不难得出以下结论：
+\begin{itemize}
+    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} \neq 0$ $\Leftrightarrow$ 原方程有唯一解
+    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} = 0$ $\Leftrightarrow$ 原方程无解或有无穷多解
+\end{itemize}
+由此我们给出二阶行列式的定义
+\begin{definition}
+    设$2$阶方阵
+    \begin{equation*}
+        A = \begin{bmatrix}
+            a_{11} & a_{12}\\
+            a_{21} & a_{22}
+        \end{bmatrix}
+    \end{equation*}
+    ,则其行列式为
+    \begin{equation*}
+        det A=|A| = \begin{vmatrix}
+            a_{11} & a_{12}\\
+            a_{21} & a_{22}
+        \end{vmatrix}
+        = a_{11}a_{22} - a_{12}a_{21}
+    \end{equation*}
+\end{definition}
+\begin{remark}
+    $2$阶行列式有$2!$项，每一项的元素都取自不同行不同列，每一项的正负由行指标按顺序排列后，列指标排列的逆序对个数决定
+\end{remark}
+有上面的分析,容易得到以下定理：
+\begin{theorem}
+    对于两个方程的二元一次方程组：
+    \begin{itemize}
+        \item 有唯一解 $\Leftrightarrow$ 系数矩阵的行列式不等于零
+        \item 无解或无穷多解 $\Leftrightarrow$ 系数矩阵的行列式等于零
+    \end{itemize}
+\end{theorem}
+
+对于$n$个方程的$n$元线性方程组，能否用所谓的$n$阶行列式反应其解的情况呢？实际上是可以的。
+\begin{remark}
+    $n$阶行列式的定义方式并不自然，暂时也只能这样了。
+\end{remark}
+
+\section{n元排列}
+由二阶行列式的定义与列指标排列的逆序对个数有关，为了给出$n$阶行列式的每一项的符号，我们需要先研究一个$n$元排列的奇偶性
+\begin{definition}
+    $n$个不同整数的一个全排列称为一个$n$元排列
+\end{definition}
+\begin{definition}
+    一个$n$元排列中任意取两个数，若大的在前，小的在后，则这两个元素形成了一个逆序对。
+\end{definition}
+\begin{definition}
+    对一个$n$元排列，若逆序对个数为奇数个，则称其为奇排列，反之称为偶排列。
+\end{definition}
+\begin{theorem}
+    相邻两个元素交换改变排列的奇偶性
+\end{theorem}
+不难推出：
+\begin{theorem}
+    任意两个元素交换改变排列的奇偶性，即:
+    \begin{equation*}
+        (-1)^{p_{1}p_{2}\cdots p_{i}p_{j}}
+    \end{equation*}
+\end{theorem}
+
+\section{n阶行列式的定义}
+仿照$2$阶行列式，$n$阶行列式的每一项

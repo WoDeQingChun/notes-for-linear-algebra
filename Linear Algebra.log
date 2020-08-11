@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.4.16)  28 JUL 2020 17:26
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.4.16)  10 AUG 2020 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -312,6 +312,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \c@theorem=\count288
 \c@definition=\count289
 \c@corollary=\count290
+\c@remark=\count291
  (./Linear Algebra.aux)
 \openout1 = `"Linear Algebra.aux"'.
 
@@ -444,23 +445,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 第一章
 [2
 
-]) (./data/chapter10.tex
+]
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 1.
- [3]
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 92.
+ [3]) (./data/chapter02.tex [4]
 第二章
-[4
+[5
+
+]) (./data/chapter10.tex [6]
+第三章
+[7
 
 ]
 Missing character: There is no ， in font [lmroman12-regular]:mapping=tex-text;!
- [5]) [6] (./Linear Algebra.aux) ) 
+ [8]) [9] (./Linear Algebra.aux) ) 
 Here is how much of TeX's memory you used:
- 8918 strings out of 479418
- 238697 string characters out of 5888105
- 506706 words of memory out of 5000000
- 26315 multiletter control sequences out of 15000+600000
+ 8961 strings out of 479418
+ 240811 string characters out of 5888105
+ 506743 words of memory out of 5000000
+ 26355 multiletter control sequences out of 15000+600000
  539920 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 56i,7n,68p,352b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,8n,68p,352b,273s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Linear Algebra.pdf (7 pages).
+Output written on Linear Algebra.pdf (10 pages).
