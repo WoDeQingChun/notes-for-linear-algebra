@@ -72,9 +72,85 @@
 \begin{theorem}
     任意两个元素交换改变排列的奇偶性，即:
     \begin{equation*}
-        (-1)^{p_{1}p_{2}\cdots p_{i}p_{j}}
+        (-1)^{\tau (p_{1}p_{2}\cdots p_{i-1} \bm{p_{i}} p_{i+1} \cdots p_{j-1} \bm{p_{j}} p_{j+1} \cdots p_{n})}
+        = (-1) \times (-1)^{\tau (p_{1}p_{2}\cdots p_{i-1} \bm{p_{j}} p_{i+1} \cdots p_{j-1} \bm{p_{i}} p_{j+1} \cdots p_{n})}
     \end{equation*}
 \end{theorem}
 
 \section{n阶行列式的定义}
-仿照$2$阶行列式，$n$阶行列式的每一项
+\subsection{行指标有序的定义方式}
+仿照$2$阶行列式，$n$阶行列式的每一项都是$n$个不同行不同列的元素的乘积，共有$n!$项，
+每一项的正负由行指标按顺序排列后，列指标排列的逆序对个数决定，因而对$n$阶行列式定义如下：
+\begin{definition}
+    设$n$阶方阵
+    \begin{equation*}
+        A = \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n}\\
+            a_{21} & a_{22} & \cdots & a_{2n}\\
+            \vdots & \vdots &        & \vdots\\
+            a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{bmatrix}
+    \end{equation*}
+    定义其行列式
+    \begin{equation*}
+        det A = |A| = \sum_{j_{1}j_{2}\cdots j_{n}}^{} (-1)^{\tau (j_{1}j_{2}\cdots j_{n})}a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}}
+    \end{equation*}
+\end{definition}
+
+\subsection{更一般的定义方式}
+上面每一项的行指标都是有序排列的，但每一项的n个元素的乘积可以按任意次序相乘。即若将每一项的行指标混排，其符号该如何确定呢？\\
+对$a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}}$这一项，假设经过$s$次对换变为排列$a_{k_{1}p_{1}}a_{k_{2}p_{2}}\cdots a_{k_{n}p_{n}}$,
+则对于行指标排列的奇偶性和列指标排列的奇偶性分别有：
+\begin{equation*}
+    \begin{cases}
+        (-1)^{s} (-1)^{\tau(12 \cdots n)} = (-1)^{\tau (k_{1}k_{2}\cdots k_{n})} \\
+        (-1)^{s} (-1)^{\tau (p_{1}p_{2}\cdots p_{n})} = (-1)^{\tau (j_{1}j_{2}\cdots j_{n})}
+    \end{cases}
+\end{equation*}
+故有
+\begin{equation*}
+    (-1)^{\tau (k_{1}k_{2}\cdots k_{n}) + \tau (p_{1}p_{2}\cdots p_{n})} = (-1)^{\tau (j_{1}j_{2}\cdots j_{n})}
+\end{equation*}
+和
+\begin{equation*}
+    (-1)^{\tau (k_{1}k_{2}\cdots k_{n}) + \tau (p_{1}p_{2}\cdots p_{n})} a_{k_{1}p_{1}}a_{k_{2}p_{2}}\cdots a_{k_{n}p_{n}} 
+    =
+    (-1)^{\tau (j_{1}j_{2}\cdots j_{n})} a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}}
+\end{equation*}
+由上面的分析，容易导出以下两条性质：
+\begin{theorem}[行列式的一般定义]
+    给定行指标的一个排列$k_{1}k_{2}\cdots k_{n}$, $n$级矩阵$A$的行列式
+    \begin{equation*}
+        |A| = \sum _{p_{1}p_{2}\cdots p_{n}} ^{} (-1)^{\tau (k_{1}k_{2}\cdots k_{n}) + \tau (p_{1}p_{2}\cdots p_{n})} a_{k_{1}p_{1}}a_{k_{2}p_{2}}\cdots a_{k_{n}p_{n}}
+    \end{equation*}
+\end{theorem}
+
+若每一项按照列指标自然序排好位置，那么
+\begin{theorem}
+    \begin{equation*}
+        |A| = \sum_{i_{1}i_{2}\cdots i_{n}}^{} (-1)^{\tau (i_{1}i_{2}\cdots i_{n})} 
+        a_{i_{1}1}a_{i_{2}2}\cdots a_{i_{n}n}
+    \end{equation*}
+\end{theorem}
+\begin{remark}
+    上面这条定理其实已经说明行列式的行和列具有相同的地位
+\end{remark}
+
+\section{行列式的性质}
+从探究系数矩阵$A$的初等变换会对它的行列式产生什么样的影响这个问题出发
+我们容易探究出关于行列式的一系列性质：
+
+\begin{enumerate}
+    \item $|A| = |A^T|$这一条由定义可以直接导出，说明了对行成立的性质对列也成立，故下面只注明行的性质
+    \item 一行的公因子可以提出
+    \item 互换两行行列式变号
+    \item 若某一行是两组数的和，则行列式可以拆成两个行列式的和，他们的这一样分别是上述两组数，其它行不变
+    \item 有两行相同，则行列式的值为0
+    \item 行列式中有两行成比例，则行列式的值为0
+    \item 把一行的倍数加到另一行上，行列式的值不变
+\end{enumerate}
+
+以上性质全都可以由定义为出发点推导得来
+
+\section{行列式按一行/列展开}
+注意这样一句话：\emph{行列式的每一项都是不同行不同列的元素的乘积}

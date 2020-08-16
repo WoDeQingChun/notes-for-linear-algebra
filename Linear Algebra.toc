@@ -5,5 +5,9 @@
 \contentsline {chapter}{\numberline {第二章\hspace {.3em}}行列式}{5}%
 \contentsline {section}{\numberline {2.1}n元排列}{6}%
 \contentsline {section}{\numberline {2.2}n阶行列式的定义}{6}%
-\contentsline {chapter}{\numberline {第三章\hspace {.3em}}向量空间}{7}%
-\contentsline {section}{\numberline {3.1}预备知识-域}{7}%
+\contentsline {subsection}{\numberline {2.2.1}行指标有序的定义方式}{6}%
+\contentsline {subsection}{\numberline {2.2.2}更一般的定义方式}{7}%
+\contentsline {section}{\numberline {2.3}行列式的性质}{7}%
+\contentsline {section}{\numberline {2.4}行列式按一行/列展开}{8}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}向量空间}{9}%
+\contentsline {section}{\numberline {3.1}预备知识-域}{9}%
