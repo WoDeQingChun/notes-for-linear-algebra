@@ -16,8 +16,8 @@
 \end{equation*}
 不难得出以下结论：
 \begin{itemize}
-    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} \neq 0$ $\Leftrightarrow$ 原方程有唯一解
-    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} = 0$ $\Leftrightarrow$ 原方程无解或有无穷多解
+    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} \neq 0$ $$\Longleftrightarrow$$ 原方程有唯一解
+    \item $a_{22}-a_{12}\frac{a_{21}}{a_{11}} = 0$ $$\Longleftrightarrow$$ 原方程无解或有无穷多解
 \end{itemize}
 由此我们给出二阶行列式的定义
 \begin{definition}
@@ -153,4 +153,188 @@
 以上性质全都可以由定义为出发点推导得来
 
 \section{行列式按一行/列展开}
-注意这样一句话：\emph{行列式的每一项都是不同行不同列的元素的乘积}
+注意这样一句话：\emph{行列式的每一项都是不同行不同列的元素的乘积}，因而在取定一个元素$a_{ij}$后，d第$i$行，第$j$列的元素都不能取了。
+
+由于$n$阶行列式可以按一行一直分解至$n$个行列式的和，不难得出行列式按一行（列）展开的定理
+
+先铺垫如下概念：
+\begin{definition}[（代数）余子式]
+    $n$阶行列式$|A|$中，取定一个元素$a_{ij}$，则划去该元素所在的第$i$行，第$j$列，剩下的元素按原来次序组成的$n-1$阶行列式称为元素
+    $a_{ij}$的余子式，记为$M_{ij}$,$(-1)^{i+j}M_{ij}$称为元素$a_{ij}$的代数余子式，记为$A_{ij}$
+\end{definition}
+
+\begin{theorem}
+行列式的一行（列）展开
+对$n$阶行列式$|A|$，
+    \begin{itemize}
+        \item 按第$i$行展开有：\begin{equation*}
+            |A| = \sum_{j=1}^{n}a_{ij}A_{ij}
+        \end{equation*}
+        \item 按第$j$列展开有：\begin{equation*}
+            |A| = \sum_{i=1}^{n}a_{ij}A_{ij}
+        \end{equation*}
+    \end{itemize}
+\end{theorem}
+
+容易从行列式的分解性质和交换行的性质得到，先给出按一行展开的形式化的证明
+\begin{proof}
+对$n$阶行列式$|A|$，取定第$i$行，并把每一项的元素$a_{ij}$放到第一个位置，
+其余$n-1$个元素按自然序排好位置，根据列指标$j = 1, 2, \cdots, n$将$|A|$的$n!$项分成$n$组，则有：
+\begin{equation*}
+    \begin{split}
+        |A| & = \sum_{j k_{1} \cdots k_{i-1} k_{i+1} \cdots k_{n}}^{} (-1)^{\tau (i 1 \cdots, i-1,i+1,\cdots n) + \tau(jk_{1} \cdots k_{i-1}k_{i+1} \cdots k_{n})} 
+        a_{ij}a_{1k_{1}} \cdots a_{i-1,k_{i-1}} a_{i+1,k_{i+1}} \cdots a_{nk_{n}}\\
+            & =  \sum_{j k_{1} \cdots k_{i-1} k_{i+1} \cdots k_{n}}^{} (-1)^{i-1 + j-1 + \tau(k_{1} \cdots k_{i-1}k_{i+1} \cdots k_{n})}
+        a_{ij}a_{1k_{1}} \cdots a_{i-1,k_{i-1}} a_{i+1,k_{i+1}} \cdots a_{nk_{n}}\\
+            & = \sum_{j k_{1} \cdots k_{i-1} k_{i+1} \cdots k_{n}}^{} (-1)^{i+j}a_{ij} \cdot (-1)^{\tau(k_{1} \cdots k_{i-1}k_{i+1} \cdots k_{n})}a_{1k_{1}} \cdots a_{i-1,k_{i-1}} a_{i+1,k_{i+1}} \cdots a_{nk_{n}}\\
+            & = \sum_{j=1}^{n} (-1)^{i+j}a_{ij} \Biggl[ \sum_{k_{1} \cdots k_{i-1} k_{i+1} \cdots k_{n}}^{} (-1)^{\tau(k_{1} \cdots k_{i-1}k_{i+1} \cdots k_{n})}a_{1k_{1}} \cdots a_{i-1,k_{i-1}} a_{i+1,k_{i+1}} \cdots a_{nk_{n}} \Biggr]\\
+            & = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} M_{ij}(\text{根据定义})\\
+            & = \sum_{j=1}^{n} a_{ij} A_{ij}
+    \end{split}
+\end{equation*}
+    证毕
+\end{proof}
+
+\section{行列式按$k$行/列展开}
+\begin{definition}[$k$阶子式]
+    对$n$级矩阵$A$,任取
+    $k$行$i_1,\cdots, i_k$,其中$1 \leq i_1 < \cdots < i_k \leq n$,
+    $k$列$j_1,\cdots, j_k$,其中$1 \leq j_1 < \cdots < j_k \leq n$,
+    这$k$行$k$列交叉处按原来的次序形成的行列式称为$A$的$k$阶子式，记为
+    \begin{equation*}
+        A
+        \begin{pmatrix}
+            i_1 & \cdots & i_k\\
+            j_1 & \cdots & j_k
+        \end{pmatrix}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[（代数）余子式]
+    令$\{ i_{1}^{'},\cdots, i_{n-k}^{'} \} = \{ 1,2,\cdots, n \} \backslash \{ i_1,\cdots, i_k \}$,其中$1 \leq i_{1}^{'} \leq \cdots \leq i_{n-k}^{'}$；
+    $\{ j_{1}^{'},\cdots, j_{n-k}^{'} \} = \{ 1,2,\cdots, n \} \backslash \{ j_1,\cdots, j_k \}$,其中$1 \leq j_{1}^{'} \leq \cdots \leq j_{n-k}^{'}$,
+    则称
+    \begin{equation*}
+        A
+        \begin{pmatrix}
+            i_{1}^{'} & \cdots & i_{n-k}^{'}\\
+            j_{1}^{'} & \cdots & j_{n-k}^{'}\\
+        \end{pmatrix}
+    \end{equation*}
+    为上述$k$阶子式的余子式
+    称
+    \begin{equation*}
+        (-1)^{(i_1 + \cdots + i_k) + (j_1 + \cdots + j_k)}A
+        \begin{pmatrix}
+            i_{1}^{'} & \cdots & i_{n-k}^{'}\\
+            j_{1}^{'} & \cdots & j_{n-k}^{'}\\
+        \end{pmatrix}
+    \end{equation*}
+    为上述$k$阶子式的代数余子式
+\end{definition}
+
+\begin{theorem}[Laplace定理]
+    取定行列式$|A|$的$k$行，则这$k$行形成的$k$阶子式与其对应的代数余子式乘积之和就是行列式的值,即
+    \begin{equation*}
+        |A| = \sum_{1 \leq j_1 < \cdots < j_k \leq n}^{}A
+        \begin{pmatrix}
+            i_{1} & \cdots & i_{k}\\
+            j_{1} & \cdots & j_{k}\\
+        \end{pmatrix}
+        (-1)^{(i_1 + \cdots + i_k) + (j_1 + \cdots + j_k)}A
+        \begin{pmatrix}
+            i_{1}^{'} & \cdots & i_{n-k}^{'}\\
+            j_{1}^{'} & \cdots & j_{n-k}^{'}\\
+        \end{pmatrix}
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    取定$|A|$的$k$行，将这$k$行形成的$\mathbf{C}_n^k$个$k$阶子式分组，并把这$k$行的$k$
+    个元素排在最前面，则：
+    \begin{equation*}
+        |A| = \sum_{u_1 \cdots u_k v_1 \cdots v_{n-k}}^{} (-1)^{i_1 + \cdots + i_k - \frac{k(k+1)}{2} \tau(u_1 \cdots u_k v_1 \cdots v_k)} 
+        a_{i_1 u_1} \cdots a_{i_k u_k} a_{i_{1}^{'} v_1} \cdots a_{i_{n-k}^{'} v_{n-k}}
+    \end{equation*}
+    其中$u_1 \cdots u_k$是$j_1,\cdots, j_k$的一个$k$元排列；
+    $v_1 \cdots v_{n-k}$是$j_{1}^{'},\cdots, j_{n-k}^{'}$的一个$n-k$元排列；
+    分组思路为：
+    \begin{enumerate}
+        \item 先从$n$列中任取$k$列：$j_1,\cdots, j_k$
+        \item $u_1 \cdots u_k$是列指标$j_1,\cdots, j_k$的一个全排列
+        \item $v_1 \cdots v_{n-k}$是剩下的列指标$j_{1}^{'},\cdots, j_{n-k}^{'}$的一个全排列
+    \end{enumerate}
+    另外，假设排列$u_1 \cdots u_k$经过$s$次对换变为$j_1 \cdots j_k$则:
+     
+     \begin{equation*}
+         (-1)^{\tau(u_1 \cdots u_k)} = (-1)^{s} (-1)^{\tau(j_1,\cdots, j_k)} = (-1)^{s}
+     \end{equation*}
+    从而：
+    \begin{equation*}
+        \begin{split}
+            &(-1)^{\tau(u_1 \cdots u_k v_1 \cdots v_{n-k})}\\ 
+            & = (-1)^{s} (-1)^{\tau(j_1 \cdots j_k v_1 \cdots v_{n-k})}\\
+            & = (-1)^{\tau(u_1 \cdots u_k)} (-1)^{j_1 + \cdots + j_k - \frac{k(k+1)}{2} + \tau(v_1 \cdots v_{n-k})}\\
+            & = (-1)^{j_1 + \cdots + j_k - \frac{k(k+1)}{2}} (-1)^{\tau(u_1 \cdots u_k) + \tau(v_1 \cdots v_{n-k})}\\
+            \end{split}
+    \end{equation*}
+    于是有：
+    \begin{equation*}
+        \begin{split}
+            |A| &= \sum_{u_1 \cdots u_k v_1 \cdots v_{n-k}}^{} (-1)^{\tau(i_1 \cdots i_k i_{1}^{'} \cdots i_{n-k}^{'}) + \tau(u_1 \cdots u_k v_1 \cdots v_k)} 
+        a_{i_1 u_1} \cdots a_{i_k u_k} a_{i_{1}^{'} v_1} \cdots a_{i_{n-k}^{'} v_{n-k}} \\
+                &= \sum_{u_1 \cdots u_k v_1 \cdots v_{n-k}}^{} (-1)^{i_1 + \cdots + i_k - \frac{k(k+1)}{2} + \tau(u_1 \cdots u_k v_1 \cdots v_k)} 
+        a_{i_1 u_1} \cdots a_{i_k u_k} a_{i_{1}^{'} v_1} \cdots a_{i_{n-k}^{'} v_{n-k}} \\
+                &= \sum_{1 \leq j_1 < \cdots < j_k} ^{} \sum_{u_1 \cdots u_k}^{} \sum_{v_1 \cdots v_{n-k}}
+            (-1)^{i_1 + \cdots + i_k - \frac{k(k+1)}{2} + j_1 + \cdots + j_k - \frac{k(k+1)}{2}} (-1)^{\tau(u_1 \cdots u_k) + \tau(v_1 \cdots v_{n-k})} \cdot\\
+                &a_{i_1 u_1} \cdots a_{i_k u_k} a_{i_{1}^{'} v_1} \cdots a_{i_{n-k}^{'} v_{n-k}} \\
+                &= \sum_{1 \leq j_1 < \cdots < j_k} ^{} (-1)^{(i_1 + \cdots + i_k) + (j_1 + \cdots + j_k)}
+                \sum_{u_1 \cdots u_k}^{} (-1)^{\tau(u_1 \cdots u_k)} a_{i_1 u_1} \cdots a_{i_k u_k} \sum_{v_1 \cdots v_{n-k}} (-1)^{\tau(v_1 \cdots v_k)}a_{i_{1}^{'} v_1} \cdots a_{i_{n-k}^{'} v_{n-k}}\\
+                &= \sum_{1 \leq j_1 < \cdots < j_k \leq n}^{}A
+                \begin{pmatrix}
+                    i_{1} & \cdots & i_{k}\\
+                    j_{1} & \cdots & j_{k}\\
+                \end{pmatrix}
+                (-1)^{(i_1 + \cdots + i_k) + (j_1 + \cdots + j_k)}A
+                \begin{pmatrix}
+                    i_{1}^{'} & \cdots & i_{n-k}^{'}\\
+                    j_{1}^{'} & \cdots & j_{n-k}^{'}\\
+                \end{pmatrix}
+                \text{(根据定义)}
+        \end{split}
+    \end{equation*}
+\end{proof}
+
+\section{范德蒙（Vandermonde）行列式}
+数学归纳法易证：
+\begin{equation*}
+    \begin{vmatrix}
+        1 & 1 & \cdots & 1  \\
+        x_1 & x_2 & \cdots & x_n \\
+        x_1^2 & x_2^2 &\cdots & x_n^2 \\
+        \vdots & \vdots & & \vdots \\
+        x_1^{n-1} & x_2^{n-1} &\cdots & x_n^{n-1} \\
+    \end{vmatrix}
+    = \prod_{1 \leq j < i \leq n}^{}(x_i - x_j)
+\end{equation*}
+
+\section{Cramer法则及其补充}
+
+\begin{theorem}[$n$个方程的$n$元线性方程组解的行列式判定准则]
+    对含$n$个方程的$n$元线性方程组，设其系数矩阵为$A$,增广矩阵为$\widetilde{A}$,
+    对应的行阶梯型矩阵分别为$J$,$\widetilde{J}$,则$|J| = \lambda  |A|(\lambda \neq 0)$.且有如下判定定理:
+    \begin{itemize}
+        \item 无解 $\Longleftrightarrow$ $\widetilde{J}$中出现"$0=d(d \neq 0)$" $\mathop{\Longleftrightarrow}\limits^{\text{左箭头可由}}_{\text{反证法得到}}$ $J$中的有零行 $\Longleftrightarrow$ $|J| = 0$ $\Longleftrightarrow$ $|A| = 0$
+        \item 有唯一解 $\Longleftrightarrow$ 增广矩阵化行阶梯型非零行行数$r=n$ $\Longleftrightarrow$ $J$中有$n$个主元 $\Longleftrightarrow$ $|J| \neq 0$ $\Longleftrightarrow$ $|A| \neq 0$
+        \item 有无穷多解 $\Longleftrightarrow$ 增广矩阵化行阶梯型非零行行数$r<n$ $\Longleftrightarrow$ $J$中的有零行 $\Longleftrightarrow$ $|J| = 0$ $\Longleftrightarrow$ $|A| = 0$
+    \end{itemize}
+\end{theorem}
+\begin{corollary}
+    $n$元齐次线性方程组的解的情形有两种：
+    \begin{itemize}
+        \item 有唯一零解  $\Longleftrightarrow$ 系数矩阵化行阶梯型非零行行数$r=n$ $\Longleftrightarrow$ $|A| \neq 0$
+        \item 有非零解/有无穷多解 $\Longleftrightarrow$ 系数矩阵化行阶梯型非零行行数$r<n$ $\Longleftrightarrow$ $|A| = 0$
+    \end{itemize}
+\end{corollary}
+
+TODO: Cramer法则后面会利用矩阵证明

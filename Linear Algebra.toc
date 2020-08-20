@@ -9,5 +9,8 @@
 \contentsline {subsection}{\numberline {2.2.2}更一般的定义方式}{7}%
 \contentsline {section}{\numberline {2.3}行列式的性质}{7}%
 \contentsline {section}{\numberline {2.4}行列式按一行/列展开}{8}%
-\contentsline {chapter}{\numberline {第三章\hspace {.3em}}向量空间}{9}%
-\contentsline {section}{\numberline {3.1}预备知识-域}{9}%
+\contentsline {section}{\numberline {2.5}行列式按$k$行/列展开}{9}%
+\contentsline {section}{\numberline {2.6}范德蒙（Vandermonde）行列式}{11}%
+\contentsline {section}{\numberline {2.7}Cramer法则及其补充}{11}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}向量空间}{12}%
+\contentsline {section}{\numberline {3.1}预备知识-域}{12}%
