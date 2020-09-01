@@ -1,0 +1,228 @@
+\chapter{线性空间}
+\section{预备知识-域}
+运算说白了就由运算对象按照一定的运算法则生成运算结果。这样就很容易用映射来给出运算的数学定义
+\begin{definition}
+    对于非空集合$X,Y$，我们称映射$\varphi : X\rightarrow Y $为
+    从$X$到$Y$的一元运算，当$X=Y$时，称$\varphi$是定义在$X$上的一元（代数）运算
+\end{definition}
+\begin{definition}
+    对于非空集合$X,Y,Z$，我们称映射$\varphi : X \times Y \rightarrow Z $为
+    从$X\times Y$到$Z$的二元运算，当$X=Y=Z$时，称$\varphi$是定义在$X$上的二元（代数）运算
+\end{definition}
+
+类似地可定义$n$元代数运算
+
+强调几个点：
+\begin{itemize}
+    \item $\varphi$只是一个抽象的运算符号，可以是任何东西，但数学中常用$+,\cdot, * $等表示二元运算符
+    \item 运算符的位置有前缀、中缀、后缀三种。常用的是中缀，例如将$\circ(x,y)$写成$\circ x y,x \circ y, x y \circ$
+    \item 对于定义在非空集合$X$上的一个运算$*$,其封闭性显然已蕴含在定义中
+\end{itemize}
+
+在集合之上定义了运算之后，这种运算就赋予了集合元素之间一种代数结构，
+例如在$\mathbb{N}$之上定义了加法之后，就有$1+3=4$，
+这就在这三个元素之间形成了结构
+\begin{definition}[代数系/系统/结构]
+    设$*$是定义在非空集合$S$上的一个运算，则称二元组$(S,*)$
+    为一个（有一个代数运算的）代数系
+\end{definition}
+
+类似的，可以定义含更多个运算的代数系
+
+对于含一个二元代数运算的代数系，我们关注该运算的交换律和结合律
+\begin{definition}[交换律、结合律]
+    设$(X,*)$是一个代数系，$*$是二元运算
+    \begin{itemize}
+        \item 若$\forall a,b \in X$，恒有
+        $a*b=b*a$,则称$*$满足结合律
+        \item 若$\forall a,b,c \in X$，恒有
+        $(a*b)*c=a*(b*c)$,则称$*$满足结合律
+    \end{itemize}
+\end{definition}
+
+同样的，二元代数运算的单位元素，以及由此引入的逆元素的概念同样很重要
+\begin{definition}[单位元素、逆元素]
+    设$(S,*)$是一个代数系，$*$是二元运算
+    \begin{itemize}
+        \item 若$\exists e \in S$，使得$\forall a \in S$,恒成立$e*a=a*e=a$,
+        则称$e$为$*$的单位元素（也叫幺元，其中幺有数目中的一的含义）。类似地可以
+        定义左单位元素和右单位元素的概念。
+        \item 若$\forall a \in S，\exists b \in S$，使得$a*b=b*a=e$
+        则称$b$是$a$在运算$e$下的逆元（加法中通常叫反元素，乘法中通常叫逆元素）。
+    \end{itemize}
+\end{definition}
+
+当一个代数系有两个二元代数运算时，这两个运算的交互能否满足分配律是我们关注的
+\begin{definition}
+    设$(S,*,+)$是一个代数系，$*,+$是二元运算，若$\forall a,b,c \in S$，恒有
+    $a*(b+c)=a*b+a*c$,则称$*$对$+$满足左分配律，类似地可以定义右分配律，左右分配律都满足则称$*$对$+$满足分配律
+\end{definition}
+
+有了上面的准备，我们可以着手定义\textbf{域}
+\begin{definition}
+    设$(S,+,\cdot)$是一个代数系统，$+,\cdot$是二元运算（不妨分别称之为加法和乘法），
+    则$(S,+,\cdot)$是一个域当且仅当满足以下五个条件:
+    \begin{enumerate}
+        \item $+,\cdot$满足交换律
+        \item $+,\cdot$满足结合律
+        \item $+,\cdot$有单位元（不妨分别记作0，1）
+        \item $\forall x \in S$, 存在加法逆元；
+                $x\neq 0$时，存在乘法逆元
+        \item $\cdot$对$+$有分配律
+    \end{enumerate}
+\end{definition}
+
+进一步地，不妨将$a$的加法逆元记为$-a$,乘法逆元记为$a^{-1}$，将减法$-$和除法$\div$分别定义为
+\[a-b=a+(-b);a \div b = a \cdot b^{-1}\]
+\begin{theorem}
+    由$a$是$-a$的加法逆元，是$a^{-1}$的乘法逆元立即可得
+    \begin{itemize}
+        \item $a=-(-a)$
+        \item $a=(a^{-1})^{-1}$
+    \end{itemize}
+\end{theorem}
+\begin{theorem}[消去律]
+    $(F,+,\cdot)$是一个域，$\forall a,b \in F$，有
+    \begin{itemize}
+        \item 若$a+b=a+c$，则$b=c$
+        \item 若$a \cdot b=a \cdot c$且$a \neq 0$，则$b=c$
+    \end{itemize}
+\end{theorem}
+\begin{corollary}
+    域中的单位元、逆元都唯一
+\end{corollary}
+\begin{theorem}
+    $(F,+,\cdot)$是一个域，$\forall a,b \in F$，有
+    \begin{itemize}
+        \item $a \cdot 0 = 0$
+        \item $(-a) \cdot b = a \cdot (-b) = -(a \cdot b)$
+        \item $(-a) \cdot (-b) = a \cdot b$
+    \end{itemize}
+\end{theorem}
+\begin{corollary}
+    域中的加法单位元没有乘法逆元
+\end{corollary}
+
+\section{线性空间的定义、例子、性质}
+\subsection{线性空间的研究引入}
+上一章中，我们用行列式的理论直接从线性方程组的系数和常数项出发判断出含$n$个方程的$n$元线性方程组的解的情况。但这一工具具有如下限制：
+\begin{itemize}
+    \item 只适用于方程个数和未知数个数相等的情况
+    \item 无法分辨出无解还是无穷多解
+    \item 有无穷多解时如何求出这无穷多个解，即解集的结构
+\end{itemize}
+基于这种考虑，就引入了数域$K$上的$n$维向量空间这一理论工具，再与几何空间做对比继续抽象，就有了线性空间这一更抽象的理论工具。
+
+\subsection{$n$维向量空间$K^n$}
+线性方程组对应增广矩阵的初等行变换可以归纳为两个更基本的操作
+\begin{itemize}
+    \item 用数域$K$中的一个数乘以某一行
+    \item 将某一行加到另一行上
+\end{itemize}
+例如对增广矩阵
+\begin{equation*}
+    \begin{bmatrix}
+        1 & -1 & -2\\
+        1 & -2 & -5\\
+        3 & -4 & -9
+    \end{bmatrix}
+\end{equation*}
+第一行的$-3$倍可以写成
+\[ -3(1,-1,-2) = (-3,3,6) \]
+把它加到第三行上可以写成
+\[ (-3,3,6) + (3,-4,-9) = (0,-1,-3) \]
+
+从上述例子收到启发，为了研究从线性方程组的系数和常数项直接出发研究其解，
+我们需要在所有$n$元有序数组组成的集合中规定像上述两个算式那样的加法运算和数乘运算
+
+取定一个数域$K$,$n$是一个正整数，记
+\[ K^N := \{(a_1,a_2,\cdots, a_n) \mid a_i \in K, i = 1, 2, \cdots, n\}  \]
+规定$K^n$中两个元素相等当且仅当这两个元素的每个分量都相等
+
+规定$K^n$上的加法运算如下：
+\[ (a_1,a_2,\cdots, a_n) + (b_1,b_2,\cdots, b_n)  = (a_1 + b_1, a_2 + b_2, \cdots, a_n + b_n)\]
+规定$K$与$K^n$上的数乘运算如下：
+\[ k(a_1,a_2,\cdots, a_n) = (ka_1, ka_2, \cdots, ka_n) \]
+容易验证加法和数量乘法运算满足以下$8$条运算法则：\\
+对于$\forall \alpha, \beta, \gamma \in K^n, k, l \in K$，有：
+\begin{enumerate}
+    \item 加法满足交换律
+    \item 加法满足结合律
+    \item 加法有单位元$(0,0, \cdots, 0)$,把它记为$0$，也称为零元素
+    \item $K^n$中每一个元素$\alpha = (a_1,a_2,\cdots, a_n)$在加法运算下具有反元素$(-a_1, -a_2, \cdots, -a_n)$，记为$-\alpha$
+    \item 数域$K$中的1是数量乘法的单位元
+    \item 数域乘法一致于数量乘法:$(kl)\alpha = k(l\alpha)$
+    \item 数量乘法对$K^n$加法满足分配律：$k(\alpha + \beta) = k\alpha + k\beta$
+    \item 数量乘法对数域中加法满足分配律$(k+l)\alpha = k\alpha + l\alpha$
+\end{enumerate}
+我们把$K^n$称为数域$K$上的一个$n$维向量空间
+
+\subsection{几何空间}
+我们生活在几何空间之中。一方面，几何空间可以看成空间中所有点组成的集合，但点的表示需要取定仿射标架/仿射坐标系，
+这就需要取定空间中的一个点$O$作为原点，以$O$为起点的向量与空间中的点一一对应；因而另一方面几何空间$V$也可以看作是由以
+$O$为起点的所有三维向量构成的集合，$V$中的向量有加法和数量乘法运算且各自满足$4$条性质(\emph{详见丘维声解析几何第三版$P_{3,4}$})。
+因而几何空间是实数域$R$上的三维向量空间$R^3$
+
+\subsection{线性空间}
+容易归纳出前面的几何空间和$n$维向量空间有如下共同点：
+\begin{itemize}
+    \item 有一个域$F$
+    \item 有一个非空集合$V$
+    \item 定义了$V$上的一个加法运算
+    \item 定义了从$F \times V$到$V$的一个标量乘法运算
+    \item 加法和标量乘法分别满足$4$条运算法则，共$8$条运算法则
+\end{itemize}
+由此，抽象出线性空间的模型
+
+\begin{definition}
+    设$F$是一个域，$V$是一个非空集合。\\
+    定义了$V$上的一个加法：$V \times V \rightarrow V$\\
+    以及$F \times V$到$V$的标量乘法（当$F$是数域时，也叫做数量乘法）
+    若加法和标量乘法满足以下$8$条运算法则：对于$\forall \alpha, \beta, \gamma \in V, k, l \in F$，有：
+    \begin{enumerate}
+        \item 加法满足交换律: $\alpha + \beta = \beta + \alpha$
+        \item 加法满足结合律: $(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)$
+        \item 加法有单位元,把它记为$0$，也称为零元素: $0 + \alpha = \alpha$
+        \item $V$中每一个元素$\alpha$在加法运算下具有反元素，记为$-\alpha$
+        \item 域$K$中的1是数量乘法的单位元 : $1\alpha = \alpha$
+        \item 域乘法一致于数量乘法:$(kl)\alpha = k(l\alpha)$
+        \item 数量乘法对$V$中加法满足分配律：$k(\alpha + \beta) = k\alpha + k\beta$
+        \item 数量乘法对数域中加法满足分配律$(k+l)\alpha = k\alpha + l\alpha$
+    \end{enumerate}
+    则称$V$是域$F$上的一个线性空间，有时也称向量空间.并借用几何的语言将线性空间中的元素称为向量.这里的加法和标量乘法统称为线性运算.
+\end{definition}
+
+\begin{example}
+    设$X$是非空集合，$F$是一个域，从$X$到$F$的每一个映射称为$X$上的$F$值函数，$X$上的所有$F$值函数记作$F^X$.\\
+    在$F^X$中定义加法和标量乘法如下:$\forall f,g \in F^X, k \in F$
+    \begin{itemize}
+        \item $(f+g)(x) := f(x) + g(x), \forall x \in X$
+        \item $(kf)(x) := k(f(x)), \forall x \in X$
+    \end{itemize}
+    容易验证满足$8$条运算法则，即$F^X$是域$F$上的一个线性空间（\emph{由于$F^X$里的每个元素都是一个函数，所以$F^X$也可以叫做函数空间}）。
+\end{example}
+
+\begin{example}
+    数域$K$上所有一元多项式组成的集合$K[x]$，它对于多项式的加法，$K$中元素与多项式的乘法，成为$K$上的一个线性空间
+\end{example}
+
+\begin{example}
+    复数域$C$可以看成是实数域$R$上的一个线性空间。其加法是复数的加法，数量乘法是实数与复数相乘
+\end{example}
+
+\begin{example}
+    作为$K^n$是数域$K$上的$n$维线性空间的特例。数域$K$可以看成是自身上的一个线性空间。其加法是数域$K$中的加法，数量乘法是数域$K$中的乘法
+\end{example}
+
+\subsection{线性空间的性质}
+设$V$是$F$上的任一线性空间.直接从线性空间的定义出发，容易推导出如下性质：
+\begin{enumerate}
+    \item $V$中的零元（加法单位元）唯一
+    \item $V$中任一元素$\alpha$的加法逆元唯一
+    \item $0\alpha = 0, \forall \alpha \in V$
+    \item $k0=0, \forall k \in F$
+    \item $k\alpha = 0 \Rightarrow k=0 \text{或者} \alpha = 0$
+    \item $(-1)\alpha = -\alpha$
+\end{enumerate}
+
+
