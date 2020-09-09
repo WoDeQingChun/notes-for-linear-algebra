@@ -189,8 +189,23 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
         \item 数量乘法对$V$中加法满足分配律：$k(\alpha + \beta) = k\alpha + k\beta$
         \item 数量乘法对数域中加法满足分配律$(k+l)\alpha = k\alpha + l\alpha$
     \end{enumerate}
-    则称$V$是域$F$上的一个线性空间，有时也称向量空间.并借用几何的语言将线性空间中的元素称为向量.这里的加法和标量乘法统称为线性运算.
+    则称$V$是域$F$上的一个\textbf{线性空间}，有时也称向量空间.并借用几何的语言将线性空间中的元素称为向量.这里的加法和标量乘法统称为线性运算.
 \end{definition}
+\begin{remark}
+    一个线性空间是由三部组成：数域$K$, 非空集合$V$, 以及定义的加法和数乘。即：
+    \begin{equation*}
+        \text{线性空间}=(V,K,+,\cdot)
+    \end{equation*}
+\end{remark}
+
+\begin{remark}
+    验证是否是线性空间主要是三部分：
+    \begin{enumerate}
+        \item 得是非空集合
+        \item 加法、数乘要封闭
+        \item 定义的加法和数乘运算分别要满足$4$条性质
+    \end{enumerate}
+\end{remark}
 
 \begin{example}
     设$X$是非空集合，$F$是一个域，从$X$到$F$的每一个映射称为$X$上的$F$值函数，$X$上的所有$F$值函数记作$F^X$.\\
