@@ -284,3 +284,25 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
     TODO:一元多项式子空间
 \end{example}
 
+\section{线性组合与线性表示}
+\begin{definition}
+    设$V$是数域$K$上的线性空间，$\alpha_1, \cdots, \alpha_s$是$V$中一组向量（即向量组）。
+    \begin{enumerate}
+        \item $k_1, \cdots, k_s$是$K$中的一组数。则称
+        \begin{equation*}
+            k_1\alpha_1 + \cdots + k_s\alpha_s
+        \end{equation*}
+        是向量组$\alpha_1, \cdots, \alpha_s$的一个\textbf{线性组合}
+
+        \item 令$W = \{k_1\alpha_1 + \cdots + k_s\alpha_s \mid k_1, \cdots, k_s \in K\}$,
+        容易验证$W$是$V$的子空间。称它是由向量组$\alpha_1, \cdots, \alpha_s$生成的子空间，
+        记为$<\alpha_1, \cdots, \alpha_s>$或$L(\alpha_1, \cdots, \alpha_s)$
+       
+        \item \begin{equation*}
+            \text{若}\beta \in <\alpha_1, \cdots, \alpha_s>
+            \Leftrightarrow \exists k_1, \cdots, k_s \in K, \text{使得} \beta = k_1\alpha_1 + \cdots + k_s\alpha_s
+        \end{equation*}
+        此时称$\beta$可由向量组$\alpha_1, \cdots, \alpha_s$线性表出
+    \end{enumerate} 
+       
+\end{definition}
