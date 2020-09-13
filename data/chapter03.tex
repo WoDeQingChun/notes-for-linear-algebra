@@ -368,3 +368,63 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
         $\Leftrightarrow$系数矩阵行列式$|A| = |\alpha_1, \cdots, \alpha_n| = 0(\neq 0)$
     \end{proposition}
 \end{enumerate}
+
+\subsection*{线性相关、无关的重要结论}
+\begin{proposition}
+    含有$\vec{0}$的向量组线性相关
+\end{proposition}
+
+\begin{proposition}
+    含单个向量的向量组:$\alpha$线性相关 $\Leftrightarrow$ $\exists \, k \neq 0$使得$k\alpha = 0$
+    $\Leftrightarrow$ $\alpha = 0$
+\end{proposition}
+
+\begin{proposition}[部分组与全组的线性相关性的联系]
+    部分组相关$\Leftrightarrow$全组相关\\
+    从而：全组无关 $\Leftrightarrow$部分组无关
+\end{proposition}
+
+\begin{proposition}[线性相关与线性表示的联系]
+    \begin{equation*}
+        \alpha_1, \cdots, \alpha_s(s \geq 2)\text{线性相关} \Leftrightarrow \text{其中至少有一个向量可由其余向量线性表示}
+    \end{equation*}
+    从而:
+    \begin{equation*}
+        \alpha_1, \cdots, \alpha_s(s \geq 2)\text{线性无关} \Leftrightarrow \text{其中任意一个向量都不可由其余向量线性表示}
+    \end{equation*}
+\end{proposition}
+
+当一个向量能由一个向量组线性表示时，为了处理问题的方便性，我们当然希望这种表示是唯一的。
+下面这个命题给出了表示方式唯一的充要条件
+\begin{proposition}
+    已知$\beta$能由向量组$\alpha_1, \cdots, \alpha_s$线性表示，则：
+    \begin{equation*}
+        \text{表示方式唯一} \Leftrightarrow \alpha_1, \cdots, \alpha_s \text{线性无关}
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    "$\Leftarrow$"：反证法结合线性无关的定义易证\\
+    "$\Rightarrow$"：反证法：假设$\alpha_1, \cdots, \alpha_s$线性相关，则存在数域$K$中一组不全为$0$的数$k_1, \cdots, k_s$使得
+    \begin{equation*}
+        k_1\alpha_1 + \cdots + k_s\alpha_s = 0
+    \end{equation*}
+    又由已知得存在数域$K$中一组不全为$0$的数$c_1, \cdots, c_s$使得
+    \begin{equation*}
+        c_1\alpha_1 + \cdots + c_s\alpha_s = \beta
+    \end{equation*}
+    两式相加后易知$\beta$的表示方式不唯一，矛盾！故$\beta$的表示方式唯一
+\end{proof}
+
+在几何空间中，若$\alpha_1, \alpha_2$不共线（即线性无关），则$\beta$可由$\alpha_1, \alpha_2$线性表示的重要条件是$\alpha_1, \alpha_2, \beta$
+共面（即$\alpha_1, \alpha_2, \beta$）线性相关\\
+那么对于一般的线性无关的向量组，我们该如何判断另一个向量能否由其线性表示呢？下面的命题给出了判断方法
+\begin{proposition}
+    设$\alpha_1, \cdots, \alpha_s$线性无关，则：
+    \begin{equation*}
+        \alpha_1, \cdots, \alpha_s, \beta \text{线性相关}\Leftrightarrow\beta\text{能由}\alpha_1, \cdots, \alpha_s\text{唯一线性表示}
+    \end{equation*}
+\end{proposition}
+即只需判断加上这个向量后是否线性相关即可！
+
+进一步地，在几何空间中，我们可以用三个向量来表示其它任一向量。推广到一般的向量组，便引出了\emph{极大线性无关组和向量组的秩以及线性空间的基和维数的概念}
