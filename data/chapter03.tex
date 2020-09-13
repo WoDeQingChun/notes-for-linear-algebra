@@ -218,7 +218,17 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
 \end{example}
 
 \begin{example}
-    数域$K$上所有一元多项式组成的集合$K[x]$，它对于多项式的加法，$K$中元素与多项式的乘法，成为$K$上的一个线性空间
+    数域$K$上所有一元多项式组成的集合$K[x] := \{ a_0 + a_1x + \cdots + a_nx^n + \cdots \mid x \in K, a_i \in K,i = 0,1,2,\cdots \}$，
+    它对于多项式的加法，$K$中元素与多项式的乘法，成为$K$上的一个线性空间(\emph{多项式空间})
+\end{example}
+    
+\begin{example}
+    数域$K$上所有次数小于$n$的一元多项式组成的集合$K[x]_n:=\{ a_0 + a_1x + \cdots + a_{n-1}x^{n-1} \mid x \in K, a_i \in K,i = 0,1,\cdots, n-1 \}$，
+    它对于多项式的加法，$K$中元素与多项式的乘法，成为$K$上的一个线性空间(\emph{多项式空间})
+\end{example}
+    
+\begin{example}
+    记数域$P$上的所有$m \times n$矩阵组成的集合为$P^{m \times n}$, 则$P^{m \times n}$对于通常的矩阵的加法和数乘构成$P$上的线性空间（\emph{矩阵空间}）
 \end{example}
 
 \begin{example}
@@ -281,7 +291,7 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
 易知$\{ 0 \}$是$V$的子空间，我们叫它零子空间。$V$也是$V$的一个自空间。这两个称为$V$的平凡子空间，其它子空间都是非平凡的。
 
 \begin{example}
-    TODO:一元多项式子空间
+    容易验证：$K[x]_n$是$K[x]$的一个子空间
 \end{example}
 
 \section{线性组合与线性表示}
