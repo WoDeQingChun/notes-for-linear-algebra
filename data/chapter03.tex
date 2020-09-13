@@ -306,3 +306,55 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
     \end{enumerate} 
        
 \end{definition}
+
+\subsection*{与线性方程组的联系}
+考虑数域$K$上的$n$元线性方程组
+\begin{equation*}
+    \begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=b_{1}\\
+        \cdots\\
+        a_{s1}x_1+\dots+a_{sn}x_n=b_{s}
+    \end{cases}
+\end{equation*}
+记
+\begin{equation*}
+    \alpha_1 = \begin{pmatrix}
+        a_{11}\\ \vdots \\ a_{s1}
+    \end{pmatrix}
+    , \cdots, 
+    \alpha_n = \begin{pmatrix}
+        a_{1n}\\ \vdots \\ a_{sn}
+    \end{pmatrix},
+    \beta = \begin{pmatrix}
+        b_1 \\ \vdots \\ b_s
+    \end{pmatrix}
+\end{equation*}
+则原方程组$x_1\alpha_1 + \cdots + x_n\alpha_n$有解\\
+$\Leftrightarrow$$\beta$可由列向量组线性表示\\
+$\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
+
+\emph{此时我们就把线性方程组有无解的问题转化成了常数向量是否在列向量组生成的子空间内。这就需要研究
+线性空间和它的子空间的结构！}
+
+\section{线性相关与线性无关的向量组}
+
+\begin{definition}[线性相关，无关]
+    设$V$是数域$K$上的线性空间。$\alpha_1, \cdots, \alpha_n$是$V$中的向量组，
+    若存在$K$中不全为$0$的一组数$k_1, \cdots, k_n$，使得$k_1\alpha_1 + \cdots + k_s\alpha_s = \vec{0}$,
+    则称向量组$\alpha_1, \cdots, \alpha_n$线性相关（反之，线性无关）
+\end{definition}
+
+\subsection*{线性相关、无关与齐次线性方程组的联系}
+不难得出如下结论：
+\begin{enumerate}
+    \item \begin{proposition}
+        $K^s$中，列向量组$\alpha_1, \cdots, \alpha_n$线性相关（无关）
+        $\Leftrightarrow$$K$上含$s$个方程的$n$元线性方程组：$x_1\alpha_1 + \cdots + x_n\alpha_n=0$有非零解（只有零解）
+    \end{proposition}
+
+    \item \begin{proposition}
+        $K^n$中，列向量组$\alpha_1, \cdots, \alpha_n$线性相关（无关）\\
+        $\Leftrightarrow$对应的齐次线性方程组有非零解（只有零解）\\
+        $\Leftrightarrow$系数矩阵行列式$|A| = |\alpha_1, \cdots, \alpha_n| = 0(\neq 0)$
+    \end{proposition}
+\end{enumerate}
