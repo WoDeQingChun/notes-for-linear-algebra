@@ -189,7 +189,8 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
         \item 数量乘法对$V$中加法满足分配律：$k(\alpha + \beta) = k\alpha + k\beta$
         \item 数量乘法对数域中加法满足分配律$(k+l)\alpha = k\alpha + l\alpha$
     \end{enumerate}
-    则称$V$是域$F$上的一个\textbf{线性空间}，有时也称向量空间.并借用几何的语言将线性空间中的元素称为向量.这里的加法和标量乘法统称为线性运算.
+    则称$V$是域$F$上的一个\textbf{线性空间}，有时也称向量空间.并借用几何的语言将线性空间中的元素称为向量.
+    这里的加法和标量乘法统称为线性运算.
 \end{definition}
 \begin{remark}
     一个线性空间是由三部组成：数域$K$, 非空集合$V$, 以及定义的加法和数乘。即：
@@ -295,6 +296,10 @@ $O$为起点的所有三维向量构成的集合，$V$中的向量有加法和�
 \end{example}
 
 \section{线性组合与线性表示}
+\begin{definition}[向量组]
+    线性空间$V$的有限子集称为一个向量组
+\end{definition}
+
 \begin{definition}
     设$V$是数域$K$上的线性空间，$\alpha_1, \cdots, \alpha_s$是$V$中一组向量（即向量组）。
     \begin{enumerate}
@@ -369,6 +374,12 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
     \end{proposition}
 \end{enumerate}
 
+\subsection*{缩短组、延伸组与原组的线性相关性}
+考虑一个有非零解齐次线性方程组，则取出其中部分方程组成的新的方程组也有非零解。这种现象对应到各自的列向量组就有结论：
+\begin{enumerate}
+    \item 原组线性相关 $\Rightarrow$ 缩短组线性相关
+    \item (\textbf{逆否命题})原组线性无关 $\Rightarrow$ 延伸组线性无关 
+\end{enumerate}
 \subsection*{线性相关、无关的重要结论}
 \begin{proposition}
     含有$\vec{0}$的向量组线性相关
@@ -428,3 +439,125 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
 即只需判断加上这个向量后是否线性相关即可！
 
 进一步地，在几何空间中，我们可以用三个向量来表示其它任一向量。推广到一般的向量组，便引出了\emph{极大线性无关组和向量组的秩以及线性空间的基和维数的概念}
+
+\section{极大线性无关组与向量组的秩}
+\textbf{提出目标}：
+对于一个向量组，希望找到它的一个部分组，使得：这个向量组中的任一向量都可由这个部分组唯一线性表示 且 这个部分组所含向量的个数尽可能少
+
+\begin{definition}[极大线性无关组]
+    向量组$\alpha_1, \cdots, \alpha_s$的一个部分组称为其极大线性无关组，如果满足：
+    \begin{enumerate}
+        \item 这个部分组线性无关
+        \item 从剩余向量（如果有的话）任取一个添加到这个部分组中，形成的新的部分组线性相关（\emph{这便是"极大"的含义}）
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[极大无关组的等价定义-1]
+    向量组$\alpha_1, \cdots, \alpha_s$的一个部分组称为其极大线性无关组，如果满足：
+    \begin{enumerate}
+        \item 这个部分组线性无关
+        \item 向量组中的任一一个向量都可以由这个部分组线性表示
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[向量组的线性表出]
+    若向量组$A$中的每一个向量都可由向量组$B$线性表示，则称向量组$A$可由向量组$B$线性表出
+\end{definition}
+
+\begin{definition}[向量组等价]
+    两个向量组$A,B$等价当且仅当可相互线性表出， 记为$A \cong B$
+\end{definition}
+
+容易证明：
+\begin{theorem}
+    向量组和它的极大无关组等价
+\end{theorem}
+
+可以证明我们定义的向量组的等价是一种等价关系，即满足
+\begin{enumerate}
+    \item （反身性） $A \cong A$
+    \item （对称性） $A \cong B \wedge A \neq B \Rightarrow B \cong A$
+    \item （传递性） $A \cong B \wedge B \cong C \Rightarrow A \cong C$
+\end{enumerate}
+
+反身性和对称性都是显然。传递性虽然也容易看出来，但在这里严格证明一下。
+\begin{lemma}[双重连加号的可交换性]
+    对：
+    \begin{align*}
+        &a_1b_1 + a_1b_2 + \cdots + a_1b_n +\\
+        &a_2b_1 + a_2b_2 + \cdots + a_2b_n +\\
+        & \cdots + \\
+        &a_mb_1 + a_mb_2 + \cdots + a_mb_n 
+    \end{align*}
+    分别先行后列加和先列后行加得到
+    \begin{equation*}
+        \sum_{i=1}^{m}\left( \sum_{j=1}^{n}a_ib_j \right) = \sum_{j=1}^{n}\left( \sum_{i=1}^{m}a_ib_j \right)
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}[传递性的证明]
+    设$A:\alpha_1, \cdots, \alpha_m$, $B:\beta_1, \cdots, \beta_n$, $C:\gamma_1, \cdots, \gamma_s$\\
+    由$A \cong B, B \cong C$,设$\alpha_i = \sum_{j=1}^{n}a_{ij}\beta_j, 1 \leq i \leq m$, $\beta_j = \sum_{k=1}^{s}b_{jk}\gamma_k, 1 \leq j \leq n$，代入得：
+    \begin{align*}
+        \alpha_i &= \sum_{j=1}^{n}a_{ij}\left( \sum_{k=1}^{s}b_{jk}\gamma_k \right) = \sum_{j=1}^{n}\left( \sum_{k=1}^{s}a_{ij}b_{jk}\gamma_k \right)\\
+                 &= \sum_{k=1}^{s}\left( \sum_{j=1}^{n}a_{ij}b_{jk}\gamma_k \right) = \sum_{k=1}^{s}\left( \sum_{j=1}^{n}a_{ij}b_{jk} \right)\gamma_k
+    \end{align*}
+    这表明向量组$A$可由向量组$C$线性表出，同理可证向量组$C$可由向量组$A$线性表出,即$A \cong C$
+\end{proof}
+
+由向量组等价得传递性立即可得
+\begin{theorem}
+    向量组的任意两个极大线性无关组等价
+\end{theorem}
+
+观察几何空间中的向量组不难发现：一个向量组的几个极大线性无关组所含向量的个数相同。不禁发问：
+\emph{一般线性空间中的向量组的两个极大线性无关组所含向量的个数相同吗？}。为此，我们需要研究当一个向量组能由另一个向量组线性表出时，
+他们所含向量的个数之间有什么联系？
+
+我们先从解剖麻雀开始。考虑几何空间中，向量组$\beta_1, \beta_2, \beta_3$可由向量组$\alpha_1, \alpha_2$线性表出，容易发现：
+无论$\alpha_1, \alpha_2$是否共线（即线性相关），$\beta_1, \beta_2, \beta_3$都会共面/共线（即线性相关）
+
+由上面的考虑我们猜想出下面引理
+\begin{lemma}
+    设$\beta_1, \cdots, \beta_r$可由$\alpha_1, \cdots, \alpha_s$线性表出。则有若$r > s$,那么$\beta_1, \cdots, \beta_r$线性相关
+\end{lemma}
+
+\begin{proof}
+    根据定义，设$x_1\beta_1 + \cdots x_r\beta_r = \vec{0}$，则只需证其有非零解即可\\
+    由已知，设
+    \begin{equation*}
+        \begin{cases}
+            \beta_1 = a_{11}\alpha_1 + \cdots + a_{s1}\alpha_s\\
+            \cdots\\
+            \beta_r = a_{1r}\alpha_1 + \cdots + a_{sr}\alpha_s\\
+        \end{cases}
+    \end{equation*}
+    代入得
+    \begin{align*}
+        (a_{11}x_1 + \cdots + a_{1r}x_r)\alpha_1 + \cdots + (a_{s1}x_1 + \cdots + a_{sr}x_r)\alpha_s = 0
+    \end{align*}
+    要使上式成立，只需令
+    \begin{equation*}
+        \begin{cases}
+            a_{11}x_1 + \cdots + a_{1r}x_r = 0\\
+            \cdots\\
+            a_{s1}x_1 + \cdots + a_{sr}x_r = 0\\
+        \end{cases}
+    \end{equation*}
+    又由已知$r > s$，则上述其次线性方程组有非零解，即$\beta_1, \cdots, \beta_r$线性相关
+\end{proof}
+
+考虑其逆否命题，则有：
+\begin{corollary}
+    设$\beta_1, \cdots, \beta_r$可由$\alpha_1, \cdots, \alpha_s$线性表出。则有若$\beta_1, \cdots, \beta_r$线性无关，那么$r \leq s$
+\end{corollary}
+
+由此立即可得
+\begin{theorem}
+    向量组的极大线性无关组所含的向量个数是一定的
+\end{theorem}
+
+这个向量的个数是十分重要的，为此我们引出如下定义
+\begin{definition}
+    向量组：$\alpha_1, \cdots, \alpha_s$的极大线性无关组所含的向量个数称为这个向量组的秩(rank),记为$rank\{\alpha_1, \cdots, \alpha_s\}$    
+\end{definition}
