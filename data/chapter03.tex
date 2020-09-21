@@ -561,3 +561,113 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
 \begin{definition}
     向量组：$\alpha_1, \cdots, \alpha_s$的极大线性无关组所含的向量个数称为这个向量组的秩(rank),记为$rank\{\alpha_1, \cdots, \alpha_s\}$    
 \end{definition}
+
+\subsection*{线性相关性与秩的关系}
+由向量组秩的定义易得：
+\begin{enumerate}
+    \item 向量组$\alpha_1, \cdots, \alpha_s$线性无关 $\Leftrightarrow$ $rank \, \{\alpha_1, \cdots, \alpha_s\} = s$
+    \item 向量组$\alpha_1, \cdots, \alpha_s$线性相关 $\Leftrightarrow$ $rank \, \{\alpha_1, \cdots, \alpha_s\} < s$
+\end{enumerate}
+
+\subsection*{向量组的线性表示与秩的关系}
+由线性表示的传递性和相关引理易得：
+\begin{enumerate}
+    \item 向量组$A$能由向量组$B$线性表示 $\Rightarrow$ $rank \, A \leq rank \, B$
+    \item 等价的向量组秩相等
+\end{enumerate}
+
+\section{线性空间的结构}
+
+\subsection*{引入}
+对于含有限个向量的向量组，我们已经通过：
+\begin{itemize}
+    \item 极大线性无关组
+    \item 秩
+\end{itemize}
+这两大工具分析出了它的结构
+
+相似地，对于含无限个向量的线性空间，我们引入：
+\begin{itemize}
+    \item 基
+    \item 维数
+\end{itemize}
+这两大工具来分析线性空间的结构！
+
+\subsection*{线性空间的子集的线性相关性}
+\begin{definition}
+    设$V$是数域$K$上的任一线性空间，则：
+    \begin{itemize}
+        \item $V$的一个有限子集$\{\alpha_1, \cdots, \alpha_s\}$线性相关（无关），当满足向量组$\{\alpha_1, \cdots, \alpha_s\}$线性相关（无关）
+        \item $V$的一个无限子集$S$线性相关，当满足$S$有一个有限子集是线性相关的
+        \item $V$的一个无限子集$S$线性无关，当满足$S$的任一有限子集线性无关
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[无限子集线性相关性的说明]
+    \begin{itemize}
+        \item 目前线性空间中还未定义距离的概念 $\Rightarrow$ 无法定义无限个向量之和的极限 $\Rightarrow$ 不能按和的方式来定义无限个向量的线性相关性
+        \item 对于向量组有：部分相关$\Rightarrow$全组相关
+    \end{itemize}
+\end{remark}
+
+\subsection*{线性空间的基}
+
+\begin{definition}
+    设$V$是数域$K$上的任一线性空间，$S$是$V$的一个子集。若满足：
+    \begin{itemize}
+        \item $S$线性无关
+        \item $V$中任一向量都可由$S$中的有限个向量线性表出
+    \end{itemize}
+    则称$S$是$V$的一个基
+\end{definition}
+规定只含零向量的线性空间的基为空集
+
+\begin{theorem}[基存在定理]
+    数域$K$上的任一线性空间都存在基
+\end{theorem}
+证明超出课程范围，记住结论即可
+
+\subsection*{线性空间的维数}
+\begin{definition}[有限维、无限维]
+    若$V$有一个基是有限子集，则称$V$为有限维的;否则$V$是无限维的
+\end{definition}
+
+同向量组的秩一样，有限维的线性空间的基所含向量的个数是一定的
+\begin{theorem}
+    设$V$是有限维的，则$V$的任意两个基所含的向量个数相同
+\end{theorem}
+
+\begin{proof}
+    $V$是有限维的 $\Rightarrow$ $V$有一个有限子集$S_1$, 取$V$的另一个基$S_2$.若：
+    \begin{enumerate}
+        \item $|S_2| < |S_1| \Rightarrow S_1$线性相关，矛盾！
+        \item $|S_2| > |S_1| \Rightarrow S_2$线性相关，矛盾！
+    \end{enumerate}
+    故$|S_2| = |S_1|$
+\end{proof}
+
+\begin{definition}[维数]
+    设有限维线性空间$V$的任意一个基中所含向量的个数称为$V$的维数，记为$dim\, V$
+\end{definition}
+若$V$是无限维的，则把$V$的维数记为$dim\,V=\infty$.特别的$\{0\}$的维数是$0$
+
+\subsection*{基的判定定理}
+直接从定义判断一组向量是否是线性空间的基是麻烦的，下面的定理在给出维数的情况下，指明了只需定义中的一个条件就可判定为基
+
+\begin{lemma}
+    设$dim\,V = n$, 则$V$中任意$n+1$个向量线性相关
+\end{lemma}
+
+\begin{theorem}基的判定定理
+    \begin{itemize}
+        \item 设$dim\,V = n$,则$V$中任意$n$个线性无关的向量构成$V$的一个基
+        \item 设$dim\,V = n$,若$V$中任一向量都可由$\alpha_1, \cdots, \alpha_n$线性表示，则$\alpha_1, \cdots, \alpha_n$是$V$的一个基
+    \end{itemize}
+\end{theorem}
+
+证明:
+\begin{enumerate}
+    \item 添加一个就线性相关，这个添加的可由这$n$个向量线性表示。根据定义得证
+    \item 取$V$的一个基:$\beta_1, \cdots, \beta_n$,则$\beta_1, \cdots, \beta_n$可由$\alpha_1, \cdots, \alpha_n$线性表出。\\
+    故$n = rank\{\beta_1, \cdots, \beta_n\} \leq rank\{\alpha_1, \cdots, \alpha_n\} \leq n$ $\Rightarrow$ $rank\{\alpha_1, \cdots, \alpha_n\} = n$
+\end{enumerate}
