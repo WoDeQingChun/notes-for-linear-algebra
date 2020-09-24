@@ -672,6 +672,24 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
     故$n = rank\{\beta_1, \cdots, \beta_n\} \leq rank\{\alpha_1, \cdots, \alpha_n\} \leq n$ $\Rightarrow$ $rank\{\alpha_1, \cdots, \alpha_n\} = n$
 \end{enumerate}
 
+\section{矩阵的秩}
+
+本节的很多结论已经能够熟记，但细究证明相当麻烦，性价比太低！故直接记！
+\begin{itemize}
+    \item 矩阵的列/行秩 $:=$ 列/行向量组的秩
+    \item 矩阵的行秩等于列秩
+    \item 矩阵$A$的秩 $:=$ 列/行向量组的秩，记为$rank(A)$
+    \item 初等变换不改变矩阵的秩
+    \item 矩阵$A$经初等行变换生成行阶梯型矩阵$J$,则$rank(A)$等于$J$的非零行行数。
+    且$J$的主元所在列构成$A$的列向量组的极大线性无关组
+    \item $rank(A) = rank(A^T)$
+    \item (矩阵秩的第二定义)非零矩阵的秩等于最高阶非零子式的阶数
+    \item 由秩的第二定义直接得：
+        \begin{equation*}
+            n \text{级矩阵} A \text{的秩为} n \Leftrightarrow |A| \neq 0
+        \end{equation*} 
+    \item 设矩阵$rank(A)=r$，则$A$的$r$阶非零子式所在的行/列构成行/列向量组的一个极大线性无关组
+\end{itemize}
 
 \section{线性空间的同构}
 同构使得我们可以使得我们可以借助一个线性空间来研究另一个线性空间
