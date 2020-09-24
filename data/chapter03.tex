@@ -671,3 +671,66 @@ $\Leftrightarrow$$\beta \in <\alpha_1, \cdots, \alpha_n>$
     \item 取$V$的一个基:$\beta_1, \cdots, \beta_n$,则$\beta_1, \cdots, \beta_n$可由$\alpha_1, \cdots, \alpha_n$线性表出。\\
     故$n = rank\{\beta_1, \cdots, \beta_n\} \leq rank\{\alpha_1, \cdots, \alpha_n\} \leq n$ $\Rightarrow$ $rank\{\alpha_1, \cdots, \alpha_n\} = n$
 \end{enumerate}
+
+
+\section{线性空间的同构}
+同构使得我们可以使得我们可以借助一个线性空间来研究另一个线性空间
+
+\subsection*{定义}
+\begin{definition}
+    设$V$和$V^{'}$是数域$F$上的两个线性空间，$f$是$V$到$V^{'}$的一个双射，若对$\forall \, \alpha, \beta \in V, \lambda \in F$都满足：
+    \begin{itemize}
+        \item $f(\alpha + \beta) = f(\alpha) + f(\beta)$
+        \item $f(\lambda \alpha) = \lambda f(\alpha)$.(即加法和数乘在映射下保持)
+    \end{itemize}
+    则称$f$是$V$到$V^{'}$的同构映射。若$V$到$V^{'}$的同构映射存在，则称$V$,$V^{'}$同构，记为$V \cong V^{'}$
+\end{definition}
+
+\subsection*{同构关系是一种等价关系}
+线性空间之间的同构具有：
+\begin{itemize}
+    \item 反身性（显然）
+    \item 对称性（容易证明$f$的逆映射$f^{-1}$是从$V^{'}$到$V$的同构映射）
+    \item 传递性（容易证明两个同构映射的合成映射也是同构映射）
+\end{itemize}
+
+\subsection*{同构映射的基本性质}
+\begin{property}
+    设$f$是线性空间$V$到$V^{'}$的同构映射，则容易验证：
+    \begin{itemize}
+        \item 零元素对应零元素，即$f(0) = 0$
+        \item 负元素对应负元素，即$f(-\alpha) = -f(\alpha)$
+        \item 同构映射保持线性相关/无关性.即:
+        $V$中向量组$\alpha_1, \cdots, \alpha_n$线性相关的当且仅当$V'$中对应的向量组$f(\alpha_1), \cdots, f(\alpha_n)$线性相关
+        \item $\alpha_1, \cdots, \alpha_n$是$V$的一个基 $\Leftrightarrow$ $f(\alpha_1), \cdots, f(\alpha_n)$是$V^{'}$的一个基
+        \item $V$的子空间在$f$之下的像集是$V^{'}$的子空间
+    \end{itemize}
+\end{property}
+
+\subsection*{研究线性空间结构的重要纽带}
+\begin{theorem}
+    数域$F$上任一$n(n > 0)$维线性空间都与$F^n$同构
+\end{theorem}
+
+\begin{proof}
+    设$V$是数域$F$上一$n(n > 0)$维线性空间。取定$V$的一个基$\alpha_1, \cdots, \alpha_n$.
+    令$f:V \to F^n, \alpha \mapsto (k_1, \cdots, k_n)^T$,其中$(k_1, \cdots, k_n)^T$是$\alpha$在基$\alpha_1, \cdots, \alpha_n$下的坐标。
+    则：
+    \begin{itemize}
+        \item 容易验证$\forall \, \alpha, \beta \in V, \alpha \neq \beta$,都有$f(\alpha) \neq f(\beta)$,故$f$是单射；
+        又$\forall \, \alpha^{'} = (k_1, \cdots, k_n)^T \in F^n$，都有$\alpha = k_1\alpha_1, \cdots, k_n\alpha_n \in V$，使得$f(\alpha) = \alpha^{'}$.故$f$也是满射。
+        从而$f$是双射。
+        \item 加法和数乘在映射下保持容易验证
+    \end{itemize}
+\end{proof}
+
+从而
+\begin{theorem}
+    数域$F$上两个有限维线性空间同构的充要条件是它们具有相同的维数
+\end{theorem}
+不难得出以下观点：
+\begin{itemize}
+    \item 基数是有限集合的唯一本质特征
+    \item 维数是有限维线性空间的唯一本质特征
+    \item 以上诸多性质定理表明：我们可以借助域$F$线性空间$F^n$的结构来研究域$F$上的任意其它$n$维线性空间
+\end{itemize}
